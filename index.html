@@ -84,10 +84,25 @@
     <div class="menu right-menu blur-container">
       <div class="title">HOVER ME</div>
       <ul class="nav">
-          <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></li>
-          <div id="chatContainer">
-            <!-- This is where your ChatGPT component will be dynamically loaded -->
-        </div>
+        <div id="container">
+          <iframe id="myIframe" src="https://chat.openai.com/" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <script>
+        // Get references to the nav and container
+        var nav = document.querySelector('.nav');
+        var container = document.getElementById('container');
+    
+        // Update container height whenever the window is resized
+        window.addEventListener('resize', function () {
+            container.style.top = nav.clientHeight + 'px';
+            container.style.bottom = '0';
+        });
+    
+        // Trigger the resize event to set the initial heights
+        window.dispatchEvent(new Event('resize'));
+    </script>
+    
+    
         
       </ul>
   </div>
